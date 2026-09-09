@@ -1,0 +1,121 @@
+name: 🐞 Bug 报告
+description: 报告 Miniclaw 中的一个 Bug
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提交 Bug。请尽量按下面的字段填写，方便维护者快速复现和定位问题。
+        涉及代码改动请优先看 PR 流程：CONTRIBUTING.md（待补充）。
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度
+      description: 你认为这个 Bug 的影响范围有多大？
+      options:
+        - 🔴 致命（数据丢失 / 安全 / 无法启动）
+        - 🟠 严重（核心功能不可用）
+        - 🟡 一般（有可用的 workaround）
+        - 🟢 轻微（UI / 文案 / 体验）
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Miniclaw 版本
+      description: 如 `v1.0.0`、`main` 分支 commit hash、或本地安装时间。
+      placeholder: "v1.0.0 / commit xxxxxxx"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: channel
+    attributes:
+      label: 触发渠道
+      description: 这个 Bug 出现在哪种入口？
+      options:
+        - Web 工作台
+        - Electron 桌面端
+        - 飞书
+        - Telegram
+        - QQ
+        - Discord
+        - 钉钉
+        - 微信
+        - WhatsApp
+        - CLI / 自定义渠道
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 最少步骤说明清楚其他人能 100% 复现。
+      placeholder: |
+        1. 打开 Web 工作台
+        2. 选择 Agent "..."
+        3. 输入 "..."
+        4. 看到报错 "..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 按设计应该发生什么。
+      placeholder: "应当返回 ... 并显示在会话区"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 实际发生了什么。粘贴完整错误信息和堆栈。
+      placeholder: |
+        ```
+        Error: ...
+          at ...
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 关键日志 / 截图
+      description: 服务端日志、浏览器 Console、桌面端 DevTools、网络请求截图等。注意脱敏。
+      placeholder: |
+        - `~/.miniclaw/logs/server.log` 相关片段
+        - 浏览器 DevTools → Network 截图
+    validations:
+      required: false
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境信息
+      description: 操作系统、Node 版本、是否 Docker 部署、模型 Provider。
+      placeholder: |
+        - OS: Windows 11 / macOS 14 / Ubuntu 22.04
+        - Node: 20.11.0
+        - Docker: 否 / 是（compose v2.24）
+        - Model: Anthropic claude-3-7-sonnet / OpenAI gpt-4o / ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 自查清单
+      options:
+        - label: 我已搜索过已有 Issue，确认无人提过
+        - label: 我用的是最新版本的 main 分支 / 最新 release
+        - label: 我已剔除敏感信息（密钥 / 模型 token / 用户聊天内容）

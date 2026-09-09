@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="80" viewBox="0 0 440 80" fill="none" role="img" aria-label="Miniclaw">
+  <style>
+    @keyframes chuxi-breathe {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+      50% { transform: translateY(-3px) scale(1.02); opacity: 0.94; }
+    }
+    @keyframes chuxi-word {
+      0%, 100% { opacity: 0.68; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(2px); }
+    }
+    .chuxi-mark {
+      animation: chuxi-breathe 2.4s ease-in-out infinite;
+      transform-origin: 36px 40px;
+    }
+    .chuxi-word {
+      animation: chuxi-word 2.4s ease-in-out infinite;
+    }
+  </style>
+
+  <g class="chuxi-mark">
+    <rect width="72" height="72" rx="18" fill="#ffffff"/>
+    <rect x="4" y="4" width="64" height="64" rx="15" fill="url(#chuxi-loading)"/>
+    <path d="M29.5 20h12.5l-3.8 9.3h8.6L30 55l4.9-16.7H26.5l3-18.3Z" fill="#ffffff"/>
+  </g>
+  <text class="chuxi-word" x="92" y="49" fill="currentColor" font-family="DM Sans, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="700">Miniclaw</text>
+
+  <defs>
+    <linearGradient id="chuxi-loading" x1="12" y1="8" x2="58" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A48B"/>
+      <stop offset=".6" stop-color="#A99FF0"/>
+      <stop offset="1" stop-color="#8378DE"/>
+    </linearGradient>
+  </defs>
+</svg>

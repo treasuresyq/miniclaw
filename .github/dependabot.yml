@@ -1,0 +1,109 @@
+# Dependabot — Miniclaw 自动依赖巡检
+# 文档：https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
+version: 2
+
+# ===== npm 主依赖 =====
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 8
+    labels:
+      - "dependencies"
+      - "npm"
+    # 只更新 semver patch/minor；major 留人工 review
+    versioning-strategy: increase
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      # 把同一波的小版本打包成一个 PR，避免每天 N 个噪音 PR
+      production-minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "@*"
+          - "!@types/*"
+          - "!@earendil-works/*"
+      dev-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "@types/*"
+          - "vitest"
+          - "prettier"
+          - "tsconfig-paths"
+          - "tsx"
+          - "typescript"
+          - "@vitest/*"
+
+  # ===== web/ 子项目独立 npm =====
+  - package-ecosystem: "npm"
+    directory: "/web"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "npm"
+      - "web"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      web-deps:
+        applies-to: version-updates
+        patterns: ["*"]
+
+  # ===== container/agent-runner 子项目 =====
+  - package-ecosystem: "npm"
+    directory: "/container/agent-runner"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "npm"
+      - "agent-runner"
+    groups:
+      runner-deps:
+        applies-to: version-updates
+        patterns: ["*"]
+
+  # ===== GitHub Actions =====
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "ci"
+    groups:
+      actions:
+        applies-to: version-updates
+        patterns: ["*"]
+
+  # ===== Docker（如果根目录有 Dockerfile）=====
+  - package-ecosystem: "docker"
+    directory: "/container"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "docker"

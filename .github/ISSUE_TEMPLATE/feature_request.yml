@@ -1,0 +1,85 @@
+name: ✨ 功能建议
+description: 提交一个功能改进或新功能的想法
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        在提交前请先搜索已有 Issue，避免重复。同时请清晰描述你希望解决的问题（而非只提方案），
+        这样维护者和社区成员可以一起讨论最合适的实现方式。
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 涉及范围
+      multiple: true
+      description: 这个功能与哪些模块相关？
+      options:
+        - 核心运行时（src/）
+        - Web 工作台
+        - Electron 桌面端
+        - 消息渠道（飞书/Telegram/QQ/...）
+        - Skills / MCP / Plugins
+        - 任务与定时（Cron / 一次性 / 间隔）
+        - 多 Agent / Subagent
+        - 权限与 ACL
+        - 用量计费
+        - 文档 / 示例
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 你目前在 Miniclaw 中遇到什么痛点？
+      placeholder: |
+        例如：作为运营人员，我经常需要按渠道批量回复客户，但现有入口必须一台一台切，
+        没有"按渠道聚合"的视图。
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 期望效果
+      description: 如果这个功能做好了，工作流会变成什么样？
+      placeholder: |
+        进入"渠道聚合"视图后，可以一眼看到 5 个渠道的待回复数，
+        点击后一次性下发并自动路由回原渠道。
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 已评估的替代方案
+      description: 你考虑过哪些替代做法？以及它们的不足？
+      placeholder: |
+        - 用 n8n 在外层调度：但权限模型不可控
+        - 自己扩展 channel adapter：但需要重复实现 ACL
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息（可选）
+      description: 截图、原型、参考竞品、相关 Issue 链接等。
+      placeholder: |
+        相关 issue: #123
+        参考: https://example.com/...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 自查清单
+      options:
+        - label: 我已搜索过已有 Issue / Discussion，确认无重复
+        - label: 我愿意认领这个功能的实现 / 测试 / 文档
+        - label: 此改动不会破坏现有 ACL 或向后兼容承诺

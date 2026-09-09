@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="72" viewBox="0 0 380 72" role="img" aria-labelledby="title desc">
+  <title id="title">Miniclaw</title>
+  <desc id="desc">Miniclaw application logo</desc>
+  <rect width="72" height="72" rx="18" fill="#ffffff"/>
+  <rect x="4" y="4" width="64" height="64" rx="15" fill="url(#chuxi-wordmark)"/>
+  <path d="M29.5 20h12.5l-3.8 9.3h8.6L30 55l4.9-16.7H26.5l3-18.3Z" fill="#ffffff"/>
+  <text x="92" y="49" fill="#1F2937" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="700">Miniclaw</text>
+  <defs>
+    <linearGradient id="chuxi-wordmark" x1="12" y1="8" x2="58" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A48B"/>
+      <stop offset=".6" stop-color="#A99FF0"/>
+      <stop offset="1" stop-color="#8378DE"/>
+    </linearGradient>
+  </defs>
+</svg>

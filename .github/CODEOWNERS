@@ -1,0 +1,40 @@
+﻿# CODEOWNERS — Miniclaw 代码审阅责任划分
+# 格式：<路径模式> <@owner>
+# 当对应文件改动时，GitHub 会自动指派这些人作为 reviewer。
+# 顶层 owner 留空兜底以 git log committer 为准；按目录逐层覆盖更精准。
+
+# ===== 顶层默认 =====
+# 没有具体匹配的文件交给顶层 owner（个人仓库可省略，留 GitHub 默认）
+*                       @treasuresyq
+
+# ===== 核心运行时 / Runtime =====
+/src/                   @treasuresyq
+/container/             @treasuresyq
+/scripts/               @treasuresyq
+/shared/                @treasuresyq
+
+# ===== Web 工作台 =====
+/web/                   @treasuresyq
+
+# ===== Electron 桌面端 =====
+/electron/              @treasuresyq
+
+# ===== 配置 / 文档 / CI =====
+/config/                @treasuresyq
+/docs/                  @treasuresyq
+/.github/               @treasuresyq
+/Makefile               @treasuresyq
+/package.json           @treasuresyq
+/package-lock.json      @treasuresyq
+/tsconfig.json          @treasuresyq
+/.prettierrc            @treasuresyq
+/vitest.config.ts       @treasuresyq
+/CONTRIBUTING.md        @treasuresyq
+
+# ===== 安全相关（任意 1 位 owner 都需 review）=====
+/SECURITY.md            @treasuresyq
+/CLAUDE.md              @treasuresyq
+/LICENSE                @treasuresyq
+
+# ===== 公共文件（PR 修改需特别说明）=====
+/README.md              @treasuresyq
