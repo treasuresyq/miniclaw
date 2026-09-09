@@ -93,7 +93,7 @@ Miniclaw 是一个面向个人与团队的自托管 AI Agent 工作台。它不�
   <img src="docs/screenshots/settings-agents.png" alt="Miniclaw 智能体配置" width="49%" />
   <img src="docs/screenshots/token-use-analyse.png" alt="Miniclaw 用量分析" width="49%" />
 </p>
-<p align="center"><em>能力库与模型配置：把 Skills、MCP、Plugins 和 Provider 配置放在清晰的管理边界内。</em></p>
+<p align="center"><em>能力库、模型配置、智能体配置与用量分析：把 Skills、MCP、Plugins 和 Provider 配置放在清晰的管理边界内。</em></p>
 
 新的 Miniclaw 图标同时用于 Web/PWA、Electron 窗口和安装包资源：
 
