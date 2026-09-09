@@ -1,7 +1,7 @@
 # Miniclaw Agent Container
 # Runs the Pi Agent Runtime in an isolated Linux VM with the full toolchain.
 
-FROM node:24-slim
+FROM node:26-slim
 
 # The publish workflow sets this to the main-branch commit SHA. Writing it into
 # the first layer intentionally invalidates all downstream "latest" tool
