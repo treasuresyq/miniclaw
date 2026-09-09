@@ -1,0 +1,12 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1000" rx="220" fill="#ffffff"/>
+  <rect x="30" y="30" width="940" height="940" rx="200" fill="url(#chuxi-light)"/>
+  <path d="M392 260h172l-52 128h118l-242 352 68-230H354l38-250Z" fill="#ffffff"/>
+  <defs>
+    <linearGradient id="chuxi-light" x1="140" y1="110" x2="820" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A48B"/>
+      <stop offset=".58" stop-color="#A99FF0"/>
+      <stop offset="1" stop-color="#8378DE"/>
+    </linearGradient>
+  </defs>
+</svg>
