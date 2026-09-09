@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "miniclaw",
   "version": "1.0.0",
   "description": "Self-hosted AI Agent workspace powered by the Pi Agent Runtime.",
@@ -57,15 +57,15 @@
     "@types/adm-zip": "^0.5.8",
     "@types/bcryptjs": "^2.4.6",
     "@types/better-sqlite3": "^7.6.12",
-    "@types/node": "^22.10.0",
+    "@types/node": "^22.20.1",
     "@types/qrcode": "^1.5.6",
     "@types/ws": "^8.18.1",
     "concurrently": "^9.2.1",
     "happy-dom": "^20.11.1",
-    "prettier": "3.8.3",
-    "tsx": "^4.19.0",
+    "prettier": "3.9.6",
+    "tsx": "^4.23.13",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.1",
+    "vitest": "^4.1.11",
     "electron": "39.8.10",
     "electron-builder": "^26.0.12",
     "esbuild": "^0.25.0"
