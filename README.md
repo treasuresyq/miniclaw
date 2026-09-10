@@ -5,24 +5,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/treasuresqi/miniclaw"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-treasuresqi%2Fminiclaw-181717?style=for-the-badge&logo=github&logoColor=white"></a>
-  <a href="docs/API.md"><img alt="API" src="https://img.shields.io/badge/API-docs-1D9E75?style=for-the-badge&logo=read-the-docs&logoColor=white"></a>
-  <a href="docs/ACL-MATRIX.md"><img alt="权限模型" src="https://img.shields.io/badge/ACL-权限矩阵-534AB7?style=for-the-badge&logo=shield&logoColor=white"></a>
-  <a href="SECURITY.md"><img alt="Security" src="https://img.shields.io/badge/Security-策略-993C1D?style=for-the-badge&logo=security&logoColor=white"></a>
-</p>
-
-<p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-1D9E75?style=flat-square">
-  <img alt="Node" src="https://img.shields.io/badge/node-%3E%3D20-378ADD?style=flat-square&logo=node.js&logoColor=white">
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white">
-  <img alt="Electron" src="https://img.shields.io/badge/Electron-Desktop-9FE1CB?style=flat-square&logo=electron&logoColor=085041">
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-Ready-378ADD?style=flat-square&logo=docker&logoColor=white">
-  <img alt="Build" src="https://img.shields.io/badge/build-passing-639922?style=flat-square&logo=github-actions&logoColor=white">
-  <img alt="Stars" src="https://img.shields.io/github/stars/treasuresqi/miniclaw?style=flat-square&logo=github">
-  <img alt="Issues" src="https://img.shields.io/github/issues/treasuresqi/miniclaw?style=flat-square&logo=github">
-</p>
-
-<p align="center">
   <a href="https://github.com/treasuresqi/miniclaw">GitHub</a> ·
   <a href="docs/API.md">API</a> ·
   <a href="docs/ACL-MATRIX.md">权限模型</a> ·
