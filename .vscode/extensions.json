@@ -1,0 +1,36 @@
+{
+  // 推荐扩展清单 — 打开项目时 VS Code 右下角会提示安装
+  // "unnecessary" 标记为非必需（按个人偏好可选安装）
+  "recommendations": [
+    // ===== TypeScript / 代码智能 =====
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+
+    // ===== 测试 =====
+    "vitest.explorer",
+
+    // ===== Git / GitHub =====
+    "eamodio.gitlens",
+    "github.copilot",
+    "github.copilot-chat",
+
+    // ===== 容器 / Docker =====
+    "ms-azuretools.vscode-docker",
+
+    // ===== 调试 / Node =====
+    "ms-vscode.js-debug",
+    "ms-vscode.node-debug",
+
+    // ===== Markdown / 文档 =====
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+
+    // ===== Electron =====
+    "electron.vscode-electron-debug"
+  ],
+  "unwantedRecommendations": [
+    // 与 Prettier 冲突的格式化器，全部禁用以免触发双格式化
+    "HookyQR.beautify",
+    "octref.vetur"
+  ]
+}

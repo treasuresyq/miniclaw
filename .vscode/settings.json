@@ -1,0 +1,61 @@
+{
+  // ===== 基础编辑 =====
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+
+  // ===== TypeScript / Node =====
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "javascript.implicitProjectConfig.checkTypes": true,
+  "nodejs.preferTrailingSlash": true,
+
+  // ===== Prettier 项目级开启 =====
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  },
+
+  // ===== Vitest 测试集成 =====
+  "vitest.enable": true,
+  "vitest.commandLine": "npm test -- --run",
+  "testing.openTesting": "neverOpen",
+
+  // ===== 保存即跑格式化检查 =====
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  // ===== 关闭 TS 工作区版本提示过频 =====
+  "typescript.tsserver.maxTsServerMemory": 4096,
+
+  // ===== 终端 =====
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.cwd": "${workspaceFolder}",
+
+  // ===== 文件排除（不显示噪音） =====
+  "files.exclude": {
+    "**/.git": true,
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/electron/dist": true
+  },
+  "testing.automaticallyOpenTestResults": "neverOpen"
+}
