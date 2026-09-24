@@ -37,21 +37,21 @@ const LIGHT_BASE_VARS: Record<string, string> = {
   '--ring': '#a3a3a3',
 };
 
-/** Default brand fallbacks (Chuxi Light) in case CSS vars are unavailable. */
+/** Default brand fallbacks (classic orange) in case CSS vars are unavailable. */
 const BRAND_DEFAULTS: Record<string, string> = {
-  '--brand-50': '#f8f7ff',
-  '--brand-100': '#f1efff',
-  '--brand-200': '#e5e1fb',
-  '--brand-300': '#cfc8f6',
-  '--brand-400': '#b0a6ee',
-  '--brand-500': '#8f84e5',
-  '--brand-600': '#7d76d8',
-  '--brand-700': '#6a62c4',
+  '--brand-50': '#fff7ed',
+  '--brand-100': '#ffedd5',
+  '--brand-200': '#fed7aa',
+  '--brand-300': '#fdba74',
+  '--brand-400': '#fb923c',
+  '--brand-500': '#f97316',
+  '--brand-600': '#ea580c',
+  '--brand-700': '#c2410c',
 };
 
 /**
  * Read current brand/primary colors from the live CSS custom properties.
- * Falls back to Chuxi Light defaults when a variable is missing.
+ * Falls back to orange defaults when a variable is missing.
  */
 function getCurrentBrandVars(): Record<string, string> {
   const style = getComputedStyle(document.documentElement);

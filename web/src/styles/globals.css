@@ -143,58 +143,58 @@
 }
 
 /* =====================================================
-   Design Token values — Chuxi Light theme
-   Primary: #7d76d8 (Soft Violet) | Base: Cool Gray
+   Design Token values — Teal theme (classic Miniclaw)
+   Primary: #0d9488 (Teal) | Base: Slate
    ===================================================== */
 :root {
   /* shadcn/ui semantic tokens */
-  --background: #f7f8fb;
-  --foreground: #1f2937;
+  --background: #ffffff;
+  --foreground: #0f172a;
   --card: #ffffff;
-  --card-foreground: #1f2937;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --primary: #7d76d8;
+  --popover-foreground: #0f172a;
+  --primary: #0d9488;
   --primary-foreground: #ffffff;
-  --secondary: #f1f4f8;
-  --secondary-foreground: #1f2937;
-  --muted: #f1f4f8;
-  --muted-foreground: #697586;
-  --accent: #f5f3ff;
-  --accent-foreground: #5b4fc4;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f0fdfa;
+  --accent-foreground: #134e4a;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #8378de;
+  --ring: #0d9488;
   --radius: 0.625rem;
 
-  /* Brand color scale (Chuxi violet) */
-  --brand-50: #f8f7ff;
-  --brand-100: #f1efff;
-  --brand-200: #e5e1fb;
-  --brand-300: #cfc8f6;
-  --brand-400: #b0a6ee;
-  --brand-500: #8f84e5;
-  --brand-600: #7d76d8;
-  --brand-700: #6a62c4;
+  /* Brand color scale (Teal) */
+  --brand-50: #f0fdfa;
+  --brand-100: #ccfbf1;
+  --brand-200: #99f6e4;
+  --brand-300: #5eead4;
+  --brand-400: #2dd4bf;
+  --brand-500: #0d9488;
+  --brand-600: #0f766e;
+  --brand-700: #115e59;
 
   /* Chart colors */
-  --chart-1: #7d76d8;
-  --chart-2: #f2836b;
-  --chart-3: #30a7bf;
-  --chart-4: #6fae8b;
-  --chart-5: #d99141;
+  --chart-1: #0d9488;
+  --chart-2: #d97706;
+  --chart-3: #4c6ef5;
+  --chart-4: #9333ea;
+  --chart-5: #dc2626;
 
   /* Sidebar */
-  --sidebar-background: #fbfcfe;
-  --sidebar-foreground: #1f2937;
-  --sidebar-primary: #7d76d8;
+  --sidebar-background: #f8fafc;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0d9488;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f5f3ff;
-  --sidebar-accent-foreground: #5b4fc4;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: #8378de;
+  --sidebar-ring: #0d9488;
 
   /* Feedback colors */
   --success: #16a34a;
@@ -209,8 +209,8 @@
 
   /* Code colors */
   --code-block-bg: #f6f8fa;
-  --inline-code-bg: rgba(125, 118, 216, 0.1);
-  --inline-code-text: #6a62c4;
+  --inline-code-bg: rgba(13, 148, 136, 0.1);
+  --inline-code-text: #0d9488;
 
   /* AI message card shadow */
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -221,17 +221,17 @@
   /* Liquid Glass design tokens */
   --glass-blur: 20px;
   --glass-saturate: 1.8;
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-bg-heavy: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(226, 232, 240, 0.72);
-  --glass-shadow: 0 8px 32px rgba(31, 41, 55, 0.06);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
   --glass-highlight: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.5) 0%,
     rgba(255, 255, 255, 0) 60%
   );
-  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.62);
-  --sidebar: #fbfcfe;
+  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  --sidebar: #f8fafc;
 }
 
 /* =====================================================
@@ -280,14 +280,14 @@ html.theme-neutral {
 }
 
 html.dark.theme-neutral {
-  --background: #202124;
+  --background: #09090b;
   --foreground: #fafafa;
-  --card: #2a2a2e;
+  --card: #18181b;
   --card-foreground: #fafafa;
-  --popover: #2a2a2e;
+  --popover: #18181b;
   --popover-foreground: #fafafa;
   --primary: #a1a1aa;
-  --primary-foreground: #202124;
+  --primary-foreground: #09090b;
   --secondary: #27272a;
   --secondary-foreground: #fafafa;
   --muted: #27272a;
@@ -297,7 +297,7 @@ html.dark.theme-neutral {
   --border: #27272a;
   --input: #27272a;
   --ring: #52525b;
-  --brand-50: #2a2a2e;
+  --brand-50: #18181b;
   --brand-100: #27272a;
   --brand-200: #3f3f46;
   --brand-300: #52525b;
@@ -305,139 +305,141 @@ html.dark.theme-neutral {
   --brand-500: #a1a1aa;
   --brand-600: #d4d4d8;
   --brand-700: #e4e4e7;
-  --surface: #2a2a2e;
-  --sidebar-background: #202124;
+  --surface: #18181b;
+  --sidebar-background: #09090b;
   --sidebar-foreground: #fafafa;
   --sidebar-primary: #a1a1aa;
-  --sidebar-primary-foreground: #202124;
+  --sidebar-primary-foreground: #09090b;
   --sidebar-accent: #27272a;
   --sidebar-accent-foreground: #fafafa;
   --sidebar-border: #27272a;
   --sidebar-ring: #52525b;
-  --sidebar: #202124;
-  --glass-bg: rgba(32, 33, 36, 0.6);
-  --glass-bg-heavy: rgba(32, 33, 36, 0.82);
+  --sidebar: #09090b;
+  --glass-bg: rgba(9, 9, 11, 0.55);
+  --glass-bg-heavy: rgba(9, 9, 11, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 /* =====================================================
-   Coral accent theme — Chuxi Light companion
-   The class name is kept for stored color-scheme values.
+   Orange theme — warm orange accent
+   Primary: Orange | Base: Warm Neutral
    ===================================================== */
 html.theme-orange {
-  --background: #fffafa;
-  --foreground: #1f2937;
-  --card: #ffffff;
-  --card-foreground: #1f2937;
-  --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --primary: #f2836b;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f5f7;
-  --secondary-foreground: #1f2937;
-  --muted: #f4f5f7;
-  --muted-foreground: #697586;
-  --accent: #fff2ee;
-  --accent-foreground: #b85442;
-  --destructive: #dc2626;
+  --background: #faf9f5;
+  --foreground: #141413;
+  --card: #f0eee6;
+  --card-foreground: #141413;
+  --popover: #f0eee6;
+  --popover-foreground: #141413;
+  --primary: oklch(0.553 0.195 38.402);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: #f0eee6;
+  --secondary-foreground: #141413;
+  --muted: #f0eee6;
+  --muted-foreground: #8b857d;
+  --accent: #f0eee6;
+  --accent-foreground: #141413;
+  --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #eddfdc;
-  --input: #eddfdc;
-  --ring: #f6a191;
-  --brand-50: #fff8f5;
-  --brand-100: #fff0ea;
-  --brand-200: #ffded3;
-  --brand-300: #fbc4b4;
-  --brand-400: #f6a191;
-  --brand-500: #f2836b;
-  --brand-600: #d96a54;
-  --brand-700: #b85442;
-  --chart-1: #f2836b;
-  --chart-2: #7d76d8;
-  --chart-3: #30a7bf;
-  --chart-4: #6fae8b;
-  --chart-5: #d99141;
-  --surface: #ffffff;
-  --sidebar-background: #fffefd;
-  --sidebar-foreground: #1f2937;
-  --sidebar-primary: #f2836b;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fff2ee;
-  --sidebar-accent-foreground: #b85442;
-  --sidebar-border: #eddfdc;
-  --sidebar-ring: #f6a191;
-  --sidebar: #fffefd;
-  --code-block-bg: #f6f8fa;
-  --inline-code-bg: rgba(242, 131, 107, 0.1);
-  --inline-code-text: #b85442;
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-bg-heavy: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(237, 223, 220, 0.72);
+  --border: #dad9d5;
+  --input: #dad9d5;
+  --ring: oklch(0.708 0 0);
+  --brand-50: #fff7ed;
+  --brand-100: #ffedd5;
+  --brand-200: #fed7aa;
+  --brand-300: #fdba74;
+  --brand-400: #fb923c;
+  --brand-500: #f97316;
+  --brand-600: #ea580c;
+  --brand-700: #c2410c;
+  --chart-1: oklch(0.837 0.128 66.29);
+  --chart-2: oklch(0.705 0.213 47.604);
+  --chart-3: oklch(0.646 0.222 41.116);
+  --chart-4: oklch(0.553 0.195 38.402);
+  --chart-5: oklch(0.47 0.157 37.304);
+  --surface: #fdfcfa;
+  --sidebar-background: #faf9f6;
+  --sidebar-foreground: #141413;
+  --sidebar-primary: oklch(0.646 0.222 41.116);
+  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
+  --sidebar-accent: #f0eee6;
+  --sidebar-accent-foreground: #141413;
+  --sidebar-border: #dad9d5;
+  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --code-block-bg: rgba(61, 61, 58, 0.05);
+  --inline-code-bg: rgba(61, 61, 58, 0.05);
+  --inline-code-text: rgb(138, 36, 36);
+  --glass-bg: rgba(250, 249, 245, 0.65);
+  --glass-bg-heavy: rgba(250, 249, 245, 0.85);
+  --glass-border: rgba(218, 217, 213, 0.5);
 }
 
 html.dark.theme-orange {
-  --background: #232736;
-  --foreground: #eef0f7;
-  --card: #2b3042;
-  --card-foreground: #eef0f7;
-  --popover: #2b3042;
-  --popover-foreground: #eef0f7;
-  --primary: #f8a896;
-  --primary-foreground: #232736;
-  --secondary: #2b3042;
-  --secondary-foreground: #eef0f7;
-  --muted: #2b3042;
-  --muted-foreground: #b3bac8;
-  --accent: #3a3543;
-  --accent-foreground: #f8a896;
-  --destructive: #f87171;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.47 0.157 37.304);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: #ffffff;
-  --border: #3a4055;
-  --input: #3a4055;
-  --ring: #f8a896;
-  --sidebar-background: #232736;
-  --sidebar-foreground: #d6dae6;
-  --sidebar-primary: #f8a896;
-  --sidebar-primary-foreground: #232736;
-  --sidebar-accent: #313547;
-  --sidebar-accent-foreground: #f8a896;
-  --sidebar-border: #313547;
-  --sidebar-ring: #f8a896;
-  --surface: #2b3042;
-  --code-block-bg: #22272e;
-  --inline-code-bg: rgba(248, 168, 150, 0.15);
-  --inline-code-text: #f8a896;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --sidebar-background: #0f172a;
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.705 0.213 47.604);
+  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+  --surface: oklch(0.205 0 0);
+  --code-block-bg: rgba(200, 200, 195, 0.08);
+  --inline-code-bg: rgba(200, 200, 195, 0.1);
+  --inline-code-text: rgb(220, 140, 140);
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --brand-50: #2b3042;
-  --brand-100: #343b52;
-  --brand-200: #414a67;
-  --brand-300: #625b71;
-  --brand-400: #916472;
-  --brand-500: #c98d84;
-  --brand-600: #f8a896;
-  --brand-700: #fbc2b6;
-  --chart-1: #f8a896;
-  --chart-2: #a99ff0;
-  --chart-3: #30a7bf;
-  --chart-4: #6fae8b;
-  --chart-5: #d99141;
-  --sidebar: #232736;
-  --glass-bg: rgba(35, 39, 54, 0.62);
-  --glass-bg-heavy: rgba(35, 39, 54, 0.82);
+  /* Brand color scale (Orange) — inverted for dark mode */
+  --brand-50: #431407;
+  --brand-100: #7c2d12;
+  --brand-200: #9a3412;
+  --brand-300: #c2410c;
+  --brand-400: #ea580c;
+  --brand-500: #f97316;
+  --brand-600: #fb923c;
+  --brand-700: #fdba74;
+
+  --chart-1: oklch(0.837 0.128 66.29);
+  --chart-2: oklch(0.705 0.213 47.604);
+  --chart-3: oklch(0.646 0.222 41.116);
+  --chart-4: oklch(0.553 0.195 38.402);
+  --chart-5: oklch(0.47 0.157 37.304);
+  --sidebar: oklch(0.205 0 0);
+  --glass-bg: rgba(15, 23, 42, 0.55);
+  --glass-bg-heavy: rgba(15, 23, 42, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-/* Coral floating nav active state */
+/* Orange floating nav active state */
 html.theme-orange .floating-nav-item.active {
-  background: rgba(242, 131, 107, 0.15);
+  background: rgba(249, 115, 22, 0.15);
   box-shadow:
-    0 2px 8px rgba(242, 131, 107, 0.15),
+    0 2px 8px rgba(249, 115, 22, 0.15),
     var(--glass-inner-shadow);
 }
 html.theme-orange .floating-nav-item.active::before {
   background: radial-gradient(
     circle,
-    rgba(242, 131, 107, 0.2) 0%,
+    rgba(249, 115, 22, 0.2) 0%,
     transparent 70%
   );
 }
@@ -475,34 +477,34 @@ html.font-anthropic .font-mono {
    Dark mode token overrides
    ===================================================== */
 .dark {
-  --background: #202334;
-  --foreground: #eef0f7;
-  --card: #2b3042;
-  --card-foreground: #eef0f7;
-  --popover: #2b3042;
-  --popover-foreground: #eef0f7;
-  --primary: #a99ff0;
-  --primary-foreground: #202334;
-  --secondary: #2b3042;
-  --secondary-foreground: #eef0f7;
-  --muted: #2b3042;
-  --muted-foreground: #b3b9c8;
-  --accent: #343b52;
-  --accent-foreground: #d7d1f8;
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --card: #1e293b;
+  --card-foreground: #e2e8f0;
+  --popover: #1e293b;
+  --popover-foreground: #e2e8f0;
+  --primary: #2dd4bf;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #134e4a;
+  --accent-foreground: #99f6e4;
   --destructive: #f87171;
   --destructive-foreground: #ffffff;
-  --border: #3a4055;
-  --input: #3a4055;
-  --ring: #a99ff0;
+  --border: #334155;
+  --input: #334155;
+  --ring: #2dd4bf;
 
-  --sidebar-background: #202334;
-  --sidebar-foreground: #d6dae6;
-  --sidebar-primary: #a99ff0;
-  --sidebar-primary-foreground: #202334;
-  --sidebar-accent: #2b3042;
-  --sidebar-accent-foreground: #d7d1f8;
-  --sidebar-border: #313547;
-  --sidebar-ring: #a99ff0;
+  --sidebar-background: #0f172a;
+  --sidebar-foreground: #cbd5e1;
+  --sidebar-primary: #2dd4bf;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #cbd5e1;
+  --sidebar-border: #1e293b;
+  --sidebar-ring: #2dd4bf;
 
   --success: #4ade80;
   --success-bg: #14532d;
@@ -511,16 +513,16 @@ html.font-anthropic .font-mono {
   --error: #f87171;
   --error-bg: #450a0a;
 
-  --surface: #2b3042;
+  --surface: #1e293b;
 
   --code-block-bg: #22272e;
-  --inline-code-bg: rgba(169, 159, 240, 0.15);
-  --inline-code-text: #c0b8f4;
+  --inline-code-bg: rgba(45, 212, 191, 0.15);
+  --inline-code-text: #2dd4bf;
 
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
-  --glass-bg: rgba(32, 35, 52, 0.62);
-  --glass-bg-heavy: rgba(32, 35, 52, 0.82);
+  --glass-bg: rgba(15, 23, 42, 0.55);
+  --glass-bg-heavy: rgba(15, 23, 42, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   --glass-highlight: linear-gradient(
@@ -529,22 +531,22 @@ html.font-anthropic .font-mono {
     rgba(255, 255, 255, 0) 60%
   );
   --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
-  /* Brand color scale (Chuxi violet) — inverted for dark mode */
-  --brand-50: #2b3042;
-  --brand-100: #343b52;
-  --brand-200: #414a67;
-  --brand-300: #59648a;
-  --brand-400: #7c86ad;
-  --brand-500: #a99ff0;
-  --brand-600: #c0b8f4;
-  --brand-700: #d7d1f8;
+  /* Brand color scale (Teal) — inverted for dark mode */
+  --brand-50: #042f2e;
+  --brand-100: #134e4a;
+  --brand-200: #115e59;
+  --brand-300: #0f766e;
+  --brand-400: #0d9488;
+  --brand-500: #14b8a6;
+  --brand-600: #2dd4bf;
+  --brand-700: #5eead4;
 
-  --chart-1: #a99ff0;
-  --chart-2: #f2836b;
-  --chart-3: #30a7bf;
-  --chart-4: #6fae8b;
+  --chart-1: #2dd4bf;
+  --chart-2: #fbbf24;
+  --chart-3: #818cf8;
+  --chart-4: #c084fc;
   --chart-5: #f87171;
-  --sidebar: #202334;
+  --sidebar: #0f172a;
 }
 
 /* =====================================================
@@ -875,10 +877,10 @@ pre code.hljs {
 }
 
 .floating-nav-item.active {
-  background: rgba(125, 118, 216, 0.14);
+  background: rgba(13, 148, 136, 0.15);
   color: var(--primary);
   box-shadow:
-    0 2px 8px rgba(125, 118, 216, 0.14),
+    0 2px 8px rgba(13, 148, 136, 0.15),
     var(--glass-inner-shadow);
   transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
   transform: scale(1.08);
@@ -891,7 +893,7 @@ pre code.hljs {
   border-radius: 9999px;
   background: radial-gradient(
     circle,
-    rgba(125, 118, 216, 0.18) 0%,
+    rgba(13, 148, 136, 0.2) 0%,
     transparent 70%
   );
   animation: glass-ripple 400ms ease-out;
@@ -940,64 +942,67 @@ pre code.hljs {
 
 /* =====================================================
    Landing Page — Hero, Glass Cards, Animations
-   Scoped Chuxi Light theme: override tokens inside .landing-page
-   so buttons, links, badges, and icons stay on-brand regardless
-   of the workspace theme setting.
+   Scoped orange theme: override tokens inside .landing-page
+   so buttons, links, badges, icons all render orange
+   regardless of the global theme setting.
+
+   注意：登录页作为品牌入口固定使用橙色配色，不随用户主题
+   偏好切换。这是产品决策，不要将这些 token 改回依赖 :root。
    ===================================================== */
 
-/* Landing-page scoped Chuxi tokens (light mode) */
+/* Landing-page scoped orange tokens (light mode) */
 .landing-page {
-  --background: #f7f8fb;
-  --foreground: #1f2937;
-  --primary: #7d76d8;
+  --background: #fffbf5;
+  --foreground: #1c1210;
+  --primary: #f97316;
   --primary-foreground: #ffffff;
-  --ring: #8378de;
-  --muted: #f1f4f8;
-  --muted-foreground: #697586;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --brand-50: #f8f7ff;
-  --brand-100: #f1efff;
-  --brand-200: #e5e1fb;
-  --brand-300: #cfc8f6;
-  --brand-400: #b0a6ee;
-  --brand-500: #8f84e5;
-  --brand-600: #7d76d8;
-  --brand-700: #6a62c4;
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-bg-heavy: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(226, 232, 240, 0.72);
-  --glass-shadow: 0 8px 32px rgba(31, 41, 55, 0.06);
-  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.66);
+  --ring: #f97316;
+  --muted: #f5ede4;
+  --muted-foreground: #8b7b6b;
+  --border: #ede3d8;
+  --input: #ede3d8;
+  --brand-50: #fff7ed;
+  --brand-100: #ffedd5;
+  --brand-200: #fed7aa;
+  --brand-300: #fdba74;
+  --brand-400: #fb923c;
+  --brand-500: #f97316;
+  --brand-600: #ea580c;
+  --brand-700: #c2410c;
+  --glass-bg: rgba(255, 251, 245, 0.6);
+  --glass-bg-heavy: rgba(255, 251, 245, 0.8);
+  --glass-border: rgba(237, 227, 216, 0.6);
+  --glass-shadow: 0 8px 32px rgba(180, 120, 60, 0.06);
+  --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
   --glass-blur: 20px;
   --glass-saturate: 1.8;
   --error: #dc2626;
   --error-bg: #fee2e2;
 }
 
-/* Landing-page scoped Chuxi tokens (dark mode) */
+/* Landing-page scoped orange tokens (dark mode) */
 .dark .landing-page {
-  --background: #202334;
-  --foreground: #eef0f7;
-  --primary: #a99ff0;
-  --primary-foreground: #202334;
-  --ring: #a99ff0;
-  --muted: #2b3042;
-  --muted-foreground: #b3b9c8;
-  --border: #3a4055;
-  --input: #3a4055;
-  --brand-50: #2b3042;
-  --brand-100: #343b52;
-  --brand-200: #414a67;
-  --brand-300: #59648a;
-  --brand-400: #7c86ad;
-  --brand-500: #a99ff0;
-  --brand-600: #c0b8f4;
-  --brand-700: #d7d1f8;
-  --glass-bg: rgba(32, 35, 52, 0.62);
-  --glass-bg-heavy: rgba(32, 35, 52, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+  --background: #1a1210;
+  --foreground: #f5ede4;
+  --primary: #fb923c;
+  --primary-foreground: #1a1210;
+  --ring: #fb923c;
+  --muted: #2a2018;
+  --muted-foreground: #a08b7a;
+  --border: #3a2a1e;
+  --input: #3a2a1e;
+  --brand-50: #431407;
+  --brand-100: #7c2d12;
+  --brand-200: #9a3412;
+  --brand-300: #c2410c;
+  --brand-400: #ea580c;
+  --brand-500: #f97316;
+  --brand-600: #fb923c;
+  --brand-700: #fdba74;
+  --glass-bg: rgba(26, 18, 16, 0.6);
+  --glass-bg-heavy: rgba(26, 18, 16, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   --glass-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
   --error: #f87171;
   --error-bg: #450a0a;
@@ -1047,13 +1052,13 @@ pre code.hljs {
      每个 blob 的具体 border-radius 在下面的 .landing-aurora-blob-N 中设置 */
 }
 
-/* Blob 1: warm coral — top left */
+/* Blob 1: warm peach-orange — top left */
 .landing-aurora-blob-1 {
   width: 70vw;
   height: 65vh;
   top: -20%;
   left: -15%;
-  background: rgba(242, 131, 107, 0.09);
+  background: rgba(251, 146, 60, 0.12);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   animation: aurora-morph-1 20s ease-in-out infinite;
 }
@@ -1064,7 +1069,7 @@ pre code.hljs {
   height: 55vh;
   bottom: -15%;
   right: -10%;
-  background: rgba(125, 118, 216, 0.08);
+  background: rgba(167, 139, 250, 0.1);
   border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
   animation: aurora-morph-2 25s ease-in-out infinite;
 }
@@ -1075,7 +1080,7 @@ pre code.hljs {
   height: 45vh;
   top: 35%;
   left: 25%;
-  background: rgba(48, 167, 191, 0.07);
+  background: rgba(56, 189, 248, 0.08);
   border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
   animation: aurora-morph-3 22s ease-in-out infinite;
 }
@@ -1086,22 +1091,22 @@ pre code.hljs {
   height: 40vh;
   top: -10%;
   right: 5%;
-  background: rgba(217, 145, 65, 0.05);
+  background: rgba(251, 113, 133, 0.08);
   border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
   animation: aurora-morph-2 28s ease-in-out infinite reverse;
 }
 
 .dark .landing-aurora-blob-1 {
-  background: rgba(242, 131, 107, 0.06);
+  background: rgba(251, 146, 60, 0.08);
 }
 .dark .landing-aurora-blob-2 {
-  background: rgba(125, 118, 216, 0.06);
+  background: rgba(167, 139, 250, 0.07);
 }
 .dark .landing-aurora-blob-3 {
-  background: rgba(48, 167, 191, 0.045);
+  background: rgba(56, 189, 248, 0.05);
 }
 .dark .landing-aurora-blob-4 {
-  background: rgba(217, 145, 65, 0.035);
+  background: rgba(251, 113, 133, 0.05);
 }
 
 /* Mobile: scale blobs to cover small screens */
@@ -1186,9 +1191,9 @@ pre code.hljs {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Gradient text — Chuxi spectrum */
+/* Gradient text — orange spectrum */
 .landing-gradient-text {
-  background: linear-gradient(135deg, #f2836b 0%, #a99ff0 52%, #8378de 100%);
+  background: linear-gradient(135deg, #ea580c 0%, #fb923c 50%, #f97316 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

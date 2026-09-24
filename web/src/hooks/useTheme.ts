@@ -31,12 +31,12 @@ function readTheme(): Theme {
 }
 
 function readColorScheme(): ColorScheme {
-  if (typeof window === 'undefined') return 'default';
+  if (typeof window === 'undefined') return 'orange';
   const stored =
     window.localStorage.getItem(SCHEME_KEY) ??
     window.localStorage.getItem(LEGACY_SCHEME_KEY);
   if (stored === 'default' || stored === 'orange' || stored === 'neutral') return stored;
-  return 'default';
+  return 'orange';
 }
 
 function readFontStyle(): FontStyle {
@@ -58,11 +58,11 @@ function syncMetaThemeColor() {
   if (!meta) return;
   const isDark = document.documentElement.classList.contains('dark');
   const isNeutral = document.documentElement.classList.contains('theme-neutral');
-  const isCoral = document.documentElement.classList.contains('theme-orange');
+  const isOrange = document.documentElement.classList.contains('theme-orange');
   if (isDark) {
-    meta.setAttribute('content', isNeutral ? '#09090b' : isCoral ? '#232736' : '#202334');
+    meta.setAttribute('content', isNeutral ? '#09090b' : '#0f172a');
   } else {
-    meta.setAttribute('content', isCoral ? '#fffafa' : isNeutral ? '#ffffff' : '#f7f8fb');
+    meta.setAttribute('content', isOrange ? '#FAF9F5' : isNeutral ? '#ffffff' : '#ffffff');
   }
 }
 
@@ -91,7 +91,7 @@ function subscribe(cb: () => void) {
 
 export function useTheme() {
   const theme = useSyncExternalStore(subscribe, readTheme, () => 'light' as Theme);
-  const colorScheme = useSyncExternalStore(subscribe, readColorScheme, () => 'default' as ColorScheme);
+  const colorScheme = useSyncExternalStore(subscribe, readColorScheme, () => 'orange' as ColorScheme);
   const fontStyle = useSyncExternalStore(subscribe, readFontStyle, () => 'default' as FontStyle);
 
   useEffect(() => { applyTheme(theme); }, [theme]);
@@ -115,7 +115,7 @@ export function useTheme() {
   }, []);
 
   const setColorScheme = useCallback((s: ColorScheme) => {
-    if (s === 'default') window.localStorage.removeItem(SCHEME_KEY);
+    if (s === 'orange') window.localStorage.removeItem(SCHEME_KEY);
     else window.localStorage.setItem(SCHEME_KEY, s);
     applyColorScheme(s);
     notify();

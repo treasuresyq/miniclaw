@@ -1,4 +1,4 @@
-﻿import fs from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, test } from 'vitest';
 
@@ -63,11 +63,11 @@ describe('Docker image distribution contract', () => {
 
   test('builds only in GitHub Actions and pulls published images at runtime', () => {
     expect(read('src/config.ts')).toContain(
-      "'treasuresyq/miniclaw-agent:latest'",
+      "'helsome/miniclaw-agent:latest'",
     );
     const makefile = read('Makefile');
     expect(makefile).toContain(
-      'CONTAINER_IMAGE ?= treasuresyq/miniclaw-agent:latest',
+      'CONTAINER_IMAGE ?= helsome/miniclaw-agent:latest',
     );
     expect(makefile).toContain('docker-pull:');
     expect(makefile).toContain('docker pull "$(CONTAINER_IMAGE)"');

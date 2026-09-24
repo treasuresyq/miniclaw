@@ -39,6 +39,99 @@ interface DirectoryQuotaCommandOptions {
   label?: string;
 }
 
+export interface SpawnInvocation {
+  command: string;
+  args: string[];
+}
+
+export function buildIsolatedHomeEnvironment(
+  tempHome: string,
+): NodeJS.ProcessEnv {
+  const realHome = os.homedir();
+  const env: NodeJS.ProcessEnv = {
+    ...process.env,
+    HOME: tempHome,
+    ...(process.platform === 'win32' ? { USERPROFILE: tempHome } : {}),
+  };
+
+  // A temporary HOME hides the user's global Git config, including proxy and
+  // credential settings. Point Git at the original config while keeping skill
+  // output isolated in tempHome.
+  const gitConfigCandidates = [
+    process.env.GIT_CONFIG_GLOBAL,
+    path.join(realHome, '.gitconfig'),
+    path.join(
+      process.env.XDG_CONFIG_HOME || path.join(realHome, '.config'),
+      'git',
+      'config',
+    ),
+  ];
+  const gitConfig = gitConfigCandidates.find((candidate) => {
+    if (!candidate) return false;
+    try {
+      return fs.statSync(candidate).isFile();
+    } catch {
+      return false;
+    }
+  });
+  if (gitConfig) env.GIT_CONFIG_GLOBAL = gitConfig;
+
+  return env;
+}
+
+/**
+ * Windows cannot reliably spawn the `npx.cmd` shim directly with Node's
+ * `spawn`/`execFile` APIs. Resolve npm's JavaScript CLI and run it with the
+ * current Node executable instead, which works on every supported platform.
+ */
+export function resolveSpawnInvocation(
+  command: string,
+  args: string[],
+): SpawnInvocation {
+  if (process.platform !== 'win32' || command !== 'npx') {
+    return { command, args };
+  }
+
+  const candidates: string[] = [];
+  const npmExecPath = process.env.npm_execpath;
+  if (npmExecPath) {
+    candidates.push(path.join(path.dirname(npmExecPath), 'npx-cli.js'));
+  }
+
+  for (const dir of (process.env.PATH ?? '').split(path.delimiter)) {
+    if (!dir) continue;
+    candidates.push(path.join(dir, 'node_modules', 'npm', 'bin', 'npx-cli.js'));
+  }
+
+  candidates.push(
+    path.join(
+      path.dirname(process.execPath),
+      'node_modules',
+      'npm',
+      'bin',
+      'npx-cli.js',
+    ),
+  );
+
+  const npxCliPath = candidates.find((candidate) => {
+    try {
+      return fs.statSync(candidate).isFile();
+    } catch {
+      return false;
+    }
+  });
+  if (!npxCliPath) {
+    throw new Error(
+      'Unable to locate npm npx CLI. Ensure Node.js and npm are installed and available on PATH.',
+    );
+  }
+
+  return {
+    command: process.execPath,
+    args: [npxCliPath, ...args],
+  };
+}
+
 function directorySizeUntil(root: string, maxBytes: number): number {
   if (!fs.existsSync(root)) return 0;
   let total = 0;
@@ -66,7 +159,8 @@ export function runCommandWithDirectoryQuota(
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     const label = options.label ?? 'Command';
-    const child = spawn(options.command, options.args, {
+    const invocation = resolveSpawnInvocation(options.command, options.args);
+    const child = spawn(invocation.command, invocation.args, {
       env: options.env,
       stdio: ['ignore', 'pipe', 'pipe'],
       detached: process.platform !== 'win32',

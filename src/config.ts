@@ -1,4 +1,4 @@
-﻿import path from 'path';
+import path from 'path';
 import fs from 'fs';
 import crypto from 'crypto';
 import { execFile } from 'node:child_process';
@@ -47,7 +47,7 @@ export const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1024 * 1024;
 export const CONTAINER_IMAGE = envWithLegacyAlias(
   'MINICLAW_CONTAINER_IMAGE',
   'CONTAINER_IMAGE',
-  'treasuresyq/miniclaw-agent:latest',
+  'helsome/miniclaw-agent:latest',
 );
 // Timezone for scheduled tasks (cron expressions, etc.)
 // Uses TZ env var with Asia/Shanghai fallback

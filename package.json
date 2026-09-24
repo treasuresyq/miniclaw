@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "miniclaw",
   "version": "1.0.0",
   "description": "Self-hosted AI Agent workspace powered by the Pi Agent Runtime.",
@@ -79,11 +79,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/treasuresyq/miniclaw-main.git"
+    "url": "git+https://github.com/helsome/miniclaw.git"
   },
-  "homepage": "https://github.com/treasuresyq/miniclaw-main#readme",
+  "homepage": "https://github.com/helsome/miniclaw#readme",
   "bugs": {
-    "url": "https://github.com/treasuresyq/miniclaw-main/issues"
+    "url": "https://github.com/helsome/miniclaw/issues"
   },
   "author": "helson",
   "keywords": [

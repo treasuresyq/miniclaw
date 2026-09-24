@@ -28,6 +28,7 @@ import {
   SKILL_ARCHIVE_MAX_FILE_BYTES,
 } from '../http-upload-policy.js';
 import {
+  buildIsolatedHomeEnvironment,
   importSkillsFromGit,
   importSkillsFromZip,
   installSkillDirectoriesTransactionally,
@@ -1326,7 +1327,7 @@ async function installSkillForUserUnlocked(
       maxBytes: MAX_SKILL_INSTALL_BYTES,
       timeoutMs: 60_000,
       label: 'Skill package installation',
-      env: { ...process.env, HOME: tempHome },
+      env: buildIsolatedHomeEnvironment(tempHome),
     });
 
     // Discover all skill directories installed into the temp location

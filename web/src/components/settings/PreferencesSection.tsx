@@ -44,13 +44,13 @@ const SCHEME_OPTIONS: {
 }[] = [
   {
     value: 'default',
-    label: '出戏轻紫',
-    preview: { bg: '#f7f8fb', accent: '#7d76d8', text: '#1f2937' },
+    label: '经典绿',
+    preview: { bg: '#f8fafc', accent: '#0d9488', text: '#0f172a' },
   },
   {
     value: 'orange',
-    label: '珊瑚暖光',
-    preview: { bg: '#fffafa', accent: '#f2836b', text: '#1f2937' },
+    label: '暖橙',
+    preview: { bg: '#faf9f5', accent: '#f97316', text: '#141413' },
   },
   {
     value: 'neutral',

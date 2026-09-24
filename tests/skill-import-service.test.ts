@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, test } from 'vitest';
 import {
   importSkillsFromGit,
   importSkillsFromZip,
+  resolveSpawnInvocation,
   runCommandWithDirectoryQuota,
 } from '../src/skill-import-service.js';
 
@@ -128,6 +129,24 @@ describe('skill import service', () => {
         pollIntervalMs: 10,
       }),
     ).rejects.toThrow('size limit');
+  });
+
+  test('runs npx through npm CLI on Windows', async () => {
+    if (process.platform !== 'win32') return;
+
+    const invocation = resolveSpawnInvocation('npx', ['--version']);
+    expect(invocation.command).toBe(process.execPath);
+    expect(path.basename(invocation.args[0])).toBe('npx-cli.js');
+
+    await expect(
+      runCommandWithDirectoryQuota({
+        command: 'npx',
+        args: ['--version'],
+        watchDir: tempDir,
+        maxBytes: 1024 * 1024,
+        timeoutMs: 5_000,
+      }),
+    ).resolves.toBeUndefined();
   });
 
   test('rejects path traversal and unsafe Git URLs before writing files', async () => {

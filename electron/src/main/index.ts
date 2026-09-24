@@ -1,4 +1,4 @@
-﻿import {
+import {
   app,
   BrowserWindow,
   dialog,
@@ -279,7 +279,7 @@ function createApplicationMenu(): void {
     {
       label: 'Help',
       submenu: [
-        { label: 'Miniclaw on GitHub', click: () => void openExternalUrl('https://github.com/treasuresyq/miniclaw-main') },
+        { label: 'Miniclaw on GitHub', click: () => void openExternalUrl('https://github.com/helsome/miniclaw') },
       ],
     },
   ];

@@ -67,14 +67,7 @@ Thumbs.db
 
 # IDE
 .idea/
-# VS Code: 屏蔽个人缓存，但保留团队共享配置
-.vscode/*
-!.vscode/settings.json
-!.vscode/settings.json.example
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/tasks.json
-!.vscode/argv.json
+.vscode/
 *.swp
 *.swo
 

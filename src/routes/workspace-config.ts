@@ -11,8 +11,6 @@ import { Hono, type Context } from 'hono';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
-import { execFile } from 'child_process';
-import { promisify } from 'util';
 import type { Variables } from '../web-context.js';
 import type { AuthUser, RegisteredGroup } from '../types.js';
 import { authMiddleware } from '../middleware/auth.js';
@@ -27,8 +25,10 @@ import {
   scanSkillDirectory,
   listFiles,
 } from '../skill-utils.js';
-
-const execFileAsync = promisify(execFile);
+import {
+  buildIsolatedHomeEnvironment,
+  runCommandWithDirectoryQuota,
+} from '../skill-import-service.js';
 
 const workspaceConfigRoutes = new Hono<{ Variables: Variables }>();
 
@@ -232,7 +232,8 @@ workspaceConfigRoutes.get(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
 
     const skillsDir = getWorkspaceSkillsDir(group);
     const skills = scanSkillDirectory(skillsDir, 'workspace');
@@ -246,7 +247,8 @@ workspaceConfigRoutes.post(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -274,9 +276,9 @@ workspaceConfigRoutes.post(
     fs.mkdirSync(tempSkillsDir, { recursive: true });
 
     try {
-      await execFileAsync(
-        'npx',
-        [
+      await runCommandWithDirectoryQuota({
+        command: 'npx',
+        args: [
           '-y',
           'skills',
           'add',
@@ -286,11 +288,12 @@ workspaceConfigRoutes.post(
           '-a',
           'claude-code',
         ],
-        {
-          timeout: 60_000,
-          env: { ...process.env, HOME: tempHome },
-        },
-      );
+        watchDir: tempHome,
+        maxBytes: 64 * 1024 * 1024,
+        timeoutMs: 60_000,
+        label: 'Skill package installation',
+        env: buildIsolatedHomeEnvironment(tempHome),
+      });
 
       // Discover installed skill directories
       const installedEntries: string[] = [];
@@ -359,7 +362,8 @@ workspaceConfigRoutes.patch(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -368,7 +372,9 @@ workspaceConfigRoutes.patch(
       return c.json({ error: 'Invalid skill ID' }, 400);
     }
 
-    const body = (await c.req.json().catch(() => ({}))) as { enabled?: unknown };
+    const body = (await c.req.json().catch(() => ({}))) as {
+      enabled?: unknown;
+    };
     if (typeof body.enabled !== 'boolean') {
       return c.json({ error: 'enabled must be a boolean' }, 400);
     }
@@ -410,7 +416,8 @@ workspaceConfigRoutes.delete(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -444,7 +451,8 @@ workspaceConfigRoutes.get(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
 
     const meta = readWorkspaceMeta(group);
     const settings = readWorkspaceSettings(group);
@@ -496,7 +504,8 @@ workspaceConfigRoutes.post(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -566,7 +575,8 @@ workspaceConfigRoutes.patch(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -576,16 +586,15 @@ workspaceConfigRoutes.patch(
     }
 
     const body = await c.req.json().catch(() => ({}));
-    const { command, args, env, enabled, description, url, headers } =
-      body as {
-        command?: string;
-        args?: string[];
-        env?: Record<string, string>;
-        enabled?: boolean;
-        description?: string;
-        url?: string;
-        headers?: Record<string, string>;
-      };
+    const { command, args, env, enabled, description, url, headers } = body as {
+      command?: string;
+      args?: string[];
+      env?: Record<string, string>;
+      enabled?: boolean;
+      description?: string;
+      url?: string;
+      headers?: Record<string, string>;
+    };
 
     const meta = readWorkspaceMeta(group);
     let entry = meta.mcpServers[id];
@@ -639,7 +648,8 @@ workspaceConfigRoutes.delete(
   authMiddleware,
   async (c) => {
     const group = resolveGroup(c);
-    if (!group) return c.json({ error: 'Group not found or access denied' }, 404);
+    if (!group)
+      return c.json({ error: 'Group not found or access denied' }, 404);
     const denied = requireWorkspaceOwner(c, group);
     if (denied) return denied;
 
@@ -654,8 +664,7 @@ workspaceConfigRoutes.delete(
 
     // Also remove from settings.json directly
     const settings = readWorkspaceSettings(group);
-    const settingsMcp =
-      (settings.mcpServers as Record<string, unknown>) || {};
+    const settingsMcp = (settings.mcpServers as Record<string, unknown>) || {};
     const hadSettings = id in settingsMcp;
 
     if (!hadMeta && !hadSettings) {

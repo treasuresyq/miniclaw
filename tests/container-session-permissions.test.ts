@@ -1,4 +1,4 @@
-﻿import { execFileSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -306,7 +306,7 @@ describe('entrypoint permission contract', () => {
 
 const integrationImage =
   process.env.MINICLAW_CONTAINER_PERMISSION_TEST_IMAGE ??
-  'treasuresyq/miniclaw-agent:latest';
+  'helsome/miniclaw-agent:latest';
 let integrationImageAvailable = false;
 try {
   execFileSync('docker', ['image', 'inspect', integrationImage], {
